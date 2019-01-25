@@ -13,7 +13,9 @@ namespace debugws2
 
       for (int x = 0; x < data.Length; x++)
       {
+
         total += cnv(data[x]);
+
       }
 
       return total;
@@ -23,6 +25,11 @@ namespace debugws2
     {
       Int32.TryParse(val, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out int value);
 
+      string str = val;
+      if(val.Contains('G')){
+         val = str.Replace('G','E');
+      }
+     Int32.TryParse(val, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out value);
       return value;
     }
 
